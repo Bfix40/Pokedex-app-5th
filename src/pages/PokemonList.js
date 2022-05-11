@@ -40,12 +40,20 @@ const PokemonList = () => {
             })
     }, [])
 
+    const variable = (item, i) => {
+        if (i >= arrOffsetPosition && i < arrOffsetPosition + 20) {
+            return (
+                <PokeItem
+                    url={item.pokemon.url}
+                    key={item.pokemon.url}
+                    setExist={setExist}
+                />
+            );
+        }
+    };
+    
     const list = pokeList[0]?.pokemon ?
-        pokeList.map((item, i) => {
-            if(i >= arrOffsetPosition && i < arrOffsetPosition + 20){
-                return <PokeItem url={item.pokemon.url} key={item.pokemon.url} setExist={setExist} />
-            }
-        })
+        pokeList.map(variable())
     :
         pokeList.map((item) => (
             <PokeItem url={item.url} key={item.url} setExist={setExist} />
