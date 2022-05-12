@@ -14,7 +14,6 @@ const Encounters = () => {
         getPokemonLocation(id)
             .then((res) => {
                 setEncounters(res.data)
-                console.log(res.data)
             })
     }, [id])
     

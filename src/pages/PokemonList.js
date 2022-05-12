@@ -25,7 +25,6 @@ const PokemonList = () => {
         } else {
             axios.get(selectType)
                 .then((res) => {
-                    console.log(res.data.pokemon)
                     setPokeList(res.data.pokemon)
                 })
         }
